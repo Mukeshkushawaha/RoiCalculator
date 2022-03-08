@@ -8,10 +8,21 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
+  Paper,
 } from "@material-ui/core";
-import Switch from "@material-ui/core/Switch";
+import { Switch } from "@material-ui/core";
 import React, { useState } from "react";
 import ClearIcon from "@material-ui/icons/Clear";
+import SwitchButton from "./SwitchButton";
+
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+
+import Accordion from "@material-ui/core/Accordion";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
 const useStyles = makeStyles((theme) => ({
   mainbox: {
     paddingTop: "20px",
@@ -46,7 +57,10 @@ const useStyles = makeStyles((theme) => ({
   },
   inputbox: {
     border: "1px solid grey",
+    borderRadius: "10px",
     padding: "15px",
+    backgroundColor: "#f5f5f5",
+
     "& p": {
       textAlign: "right",
       color: "#000",
@@ -65,6 +79,45 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  timeframe: {
+    width: "100%",
+    paddingTop: "10px",
+  },
+  timeFrameMain: {
+    marginTop: "10px",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  btn1: {
+    padding: "10px",
+    width: "50px",
+    borderRight: "24px",
+    backgroundColor: "#c4c0c07d",
+    borderRadius: "50px",
+    textAlign: "center",
+  },
+  AccBox: {
+    marginTop: "10px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  btn2: {
+    // padding: "10px",
+    width: "90px",
+    borderRight: "24px",
+    backgroundColor: "#c4c0c07d",
+    borderRadius: "50px",
+    textAlign: "center",
+  },
+  btnyellow: {
+    // padding: "10px",
+    width: "90px",
+    borderRight: "24px",
+    backgroundColor: "#ffcf33",
+    borderRadius: "50px",
+    textAlign: "center",
   },
 }));
 
@@ -85,6 +138,12 @@ export default function RoiCalculator() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const [value, setValue] = React.useState(2);
+
+  const handleChange2 = (event, newValue) => {
+    setValue(newValue);
   };
   return (
     <Box>
@@ -125,12 +184,12 @@ export default function RoiCalculator() {
               <Typography>CAKE</Typography>
             </Box>
             <Box>
-              {" "}
               <Switch
+                style={{ color: "#ffffff" }}
                 checked={state.checkedA}
                 onChange={handleChange}
                 name="checkedA"
-                inputProps={{ "aria-label": "secondary checkbox" }}
+                // inputProps={{ "aria-label": "secondary checkbox" }}
               />
             </Box>
             <Box>
@@ -149,15 +208,111 @@ export default function RoiCalculator() {
               <Typography className={classes.cake}>~ CAKE 0.000</Typography>
             </Box>
           </Box>
-        </DialogContent>
-
-        <DialogActions>
-          {/* <Box>
+          <Box className={classes.timeframe}>
             <Box>
-              <Typography>hi</Typography>
+              <Typography>Timeframe</Typography>
             </Box>
-          </Box> */}
-        </DialogActions>
+
+            <Box className={classes.timeFrameMain}>
+              <Button className={classes.btnyellow}>1 Days</Button>
+              <Button className={classes.btn2}>7 Days</Button>
+
+              <Button className={classes.btn2}>30 Days</Button>
+              <Button className={classes.btn2}>1 Years</Button>
+              <Button className={classes.btn2}>5 Years</Button>
+            </Box>
+            {/* <Tabs
+                value={value}
+                indicatorColor="none"
+                textColor="primary"
+                onChange={handleChange2}
+                aria-label="disabled tabs example"
+              >
+               
+                <Box backgroundColor="red">
+                  <Tab label="7 Days" className={classes.btn1} />
+                </Box>
+                <Tab label="7 Days" className={classes.btn1} />
+                <Tab label="30 Day" className={classes.btn1} />
+                <Tab label="1 years" className={classes.btn1} />
+                <Tab label="5 Years" className={classes.btn1} />
+              </Tabs> */}
+          </Box>
+
+          <Box className={classes.AccBox}>
+            <Box paddingTop="10px">
+              <Typography style={{ color: "#00", fontWeight: "700" }}>
+                Enable Accelerated APY
+              </Typography>
+            </Box>
+            <Box>
+              <SwitchButton />
+            </Box>
+          </Box>
+          <Box className={classes.timeframe}>
+            <Box>
+              <Typography>Select Tier</Typography>
+            </Box>
+            <Box className={classes.timeFrameMain}>
+              <Button className={classes.btnyellow}>Tier 1</Button>
+              <Button className={classes.btn2}>Tier 2</Button>
+
+              <Button className={classes.btn2}>Tier 3</Button>
+              <Button className={classes.btn2}>Tier 4</Button>
+              <Button className={classes.btn2}>Tier 5</Button>
+            </Box>
+          </Box>
+
+          <Box marginTop="10px" className={classes.disbox}>
+            <Box>
+              <Typography>ROI at Current Rates</Typography>
+            </Box>
+          </Box>
+          <Box className={classes.inputbox}>
+            <Typography>0.00 USD</Typography>
+          </Box>
+          <Box style={{ paddingTop: "5px", textAlign: "right" }}>
+            <Typography className={classes.cake}>
+              ~0.000 CAKE + 0.000000 DON
+            </Typography>
+          </Box>
+
+          <Box marginTop="10px">
+            <Accordion>
+              <AccordionSummary className={classes.accordinbox}>
+                <Box
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Typography className={classes.heading}>
+                    Show Details
+                  </Typography>
+                  <ExpandMoreIcon />
+                </Box>
+              </AccordionSummary>
+              <Box className={classes.AccBox}>
+                <Box padding="10px">
+                  <Typography>APY</Typography>
+                </Box>
+                <Box padding="10px">
+                  <Typography style={{ color: "#ffcf33" }}>9.0%</Typography>
+                </Box>
+              </Box>
+
+              <AccordionDetails style={{ padding: "0px", marginLeft: "-12px" }}>
+                <ul>
+                  <li>Calculated based on current rates</li>
+                  <li>Calculated based on current rates</li>
+                  <li>Calculated based on current rates</li>
+                </ul>
+              </AccordionDetails>
+            </Accordion>
+          </Box>
+        </DialogContent>
+        <DialogActions style={{ minWidth: "550px" }}></DialogActions>
       </Dialog>
     </Box>
   );
