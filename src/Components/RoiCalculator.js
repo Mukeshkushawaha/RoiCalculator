@@ -316,7 +316,7 @@ export default function RoiCalculator() {
             </Accordion>
           </Box>
         </DialogContent>
-        <DialogActions style={{ minWidth: "550px" }}></DialogActions>
+        <DialogActions style={{ minWidth: "551px" }}></DialogActions>
       </Dialog>
     </Box>
   );
