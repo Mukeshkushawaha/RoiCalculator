@@ -151,8 +151,8 @@ export default function RoiCalculator() {
         <Typography variant="h1">RoiCalculator Design </Typography>
       </Box>
       <Box className={classes.mainbtn}>
-        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-          RoiCalculator
+        <Button variant="contained" color="secondary" onClick={handleClickOpen}>
+          Click Here
         </Button>
       </Box>
       <Dialog
@@ -169,7 +169,11 @@ export default function RoiCalculator() {
           >
             <Box className={classes.displayflex}>
               <Box>
-                <Typography>Roi Calculator</Typography>
+                <Typography
+                  style={{ color: "#000", fontWeight: "600", fontSize: "20px" }}
+                >
+                  Roi Calculator
+                </Typography>
               </Box>
               <Box>
                 <ClearIcon onClick={handleClose} />
