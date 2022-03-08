@@ -162,7 +162,7 @@ export default function RoiCalculator() {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogContent style={{ minWidth: "550px" }}>
+        <DialogContent style={{ minWidth: "551px" }}>
           <DialogContentText
             id="alert-dialog-slide-description"
             style={{ color: "#52565c" }}
