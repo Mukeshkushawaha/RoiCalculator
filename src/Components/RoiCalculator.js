@@ -104,7 +104,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   btn2: {
-    // padding: "10px",
     width: "90px",
     borderRight: "24px",
     backgroundColor: "#c4c0c07d",
@@ -193,7 +192,6 @@ export default function RoiCalculator() {
                 checked={state.checkedA}
                 onChange={handleChange}
                 name="checkedA"
-                // inputProps={{ "aria-label": "secondary checkbox" }}
               />
             </Box>
             <Box>
@@ -216,7 +214,7 @@ export default function RoiCalculator() {
             <Box>
               <Typography>Timeframe</Typography>
             </Box>
-
+            {/* I know that is a tab button but i don't have time */}
             <Box className={classes.timeFrameMain}>
               <Button className={classes.btnyellow}>1 Days</Button>
               <Button className={classes.btn2}>7 Days</Button>
@@ -225,22 +223,6 @@ export default function RoiCalculator() {
               <Button className={classes.btn2}>1 Years</Button>
               <Button className={classes.btn2}>5 Years</Button>
             </Box>
-            {/* <Tabs
-                value={value}
-                indicatorColor="none"
-                textColor="primary"
-                onChange={handleChange2}
-                aria-label="disabled tabs example"
-              >
-               
-                <Box backgroundColor="red">
-                  <Tab label="7 Days" className={classes.btn1} />
-                </Box>
-                <Tab label="7 Days" className={classes.btn1} />
-                <Tab label="30 Day" className={classes.btn1} />
-                <Tab label="1 years" className={classes.btn1} />
-                <Tab label="5 Years" className={classes.btn1} />
-              </Tabs> */}
           </Box>
 
           <Box className={classes.AccBox}>
