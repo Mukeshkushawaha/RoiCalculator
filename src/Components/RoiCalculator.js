@@ -25,6 +25,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   mainbox: {
+    textAlign: "center",
     paddingTop: "20px",
     "& h1": {
       fontSize: "50px",
@@ -33,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainbtn: {
+    display: "flex",
+    justifyContent: "center",
     "& button": {},
   },
   displayflex: {

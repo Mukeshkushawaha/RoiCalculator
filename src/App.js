@@ -1,5 +1,3 @@
-import logo from "./logo.svg";
-import "./App.css";
 import { Box } from "@material-ui/core";
 import RoiCalculator from "./Components/RoiCalculator";
 
