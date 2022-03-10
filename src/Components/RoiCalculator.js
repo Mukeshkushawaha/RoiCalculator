@@ -4,19 +4,14 @@ import {
   makeStyles,
   Button,
   Dialog,
-  Slide,
   DialogActions,
   DialogContent,
   DialogContentText,
-  Paper,
 } from "@material-ui/core";
 import { Switch } from "@material-ui/core";
 import React, { useState } from "react";
 import ClearIcon from "@material-ui/icons/Clear";
 import SwitchButton from "./SwitchButton";
-
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
@@ -132,7 +127,7 @@ export default function RoiCalculator() {
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-  const [selectedValue, setSelectedValue] = React.useState([false]);
+
   const [open, setOpen] = useState();
   const handleClickOpen = () => {
     setOpen(true);
@@ -142,11 +137,6 @@ export default function RoiCalculator() {
     setOpen(false);
   };
 
-  const [value, setValue] = React.useState(2);
-
-  const handleChange2 = (event, newValue) => {
-    setValue(newValue);
-  };
   return (
     <Box>
       <Box className={classes.mainbox}>
